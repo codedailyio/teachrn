@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   box: {
-    backgroundColor: "#000",
+    backgroundColor: "tomato",
     width: 200,
     height: 200,
   },
