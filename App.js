@@ -9,7 +9,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    var state = new Value(-1);
+    const state = new Value(-1);
 
     this.onStateChange = event([{
       nativeEvent: {
