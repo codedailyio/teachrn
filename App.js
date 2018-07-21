@@ -2,11 +2,9 @@ import React from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import Animated from "react-native-reanimated";
 import { PanGestureHandler, State } from "react-native-gesture-handler";
-import { interpolate } from "./node_modules/react-native-reanimated/src/derived";
-
 const { width, height } = Dimensions.get("window");
 
-const { cond, eq, add, set, Value, event } = Animated;
+const { cond, eq, add, set, Value, event, interpolate, Extrapolate } = Animated;
 
 export default class App extends React.Component {
   dragX = new Value(0);
@@ -33,9 +31,10 @@ export default class App extends React.Component {
     add(this.offsetY, this.dragY),
     set(this.offsetY, add(this.offsetY, this.dragY)),
   );
-  rotate = interpolate(this.transX, {
+  borderWidth = interpolate(this.transX, {
     inputRange: [0, width],
-    outputRange: ["-360deg", "360deg"],
+    outputRange: [0, 5],
+    extrapolate: Extrapolate.CLAMP
   });
   opacity = interpolate(this.transY, {
     inputRange: [0, height],
@@ -47,12 +46,14 @@ export default class App extends React.Component {
         <PanGestureHandler
           maxPointers={1}
           onGestureEvent={this.onGestureEvent}
+          onHandlerStateChange={this.onGestureEvent}
         >
           <Animated.View
             style={[
               styles.box,
               {
                 opacity: this.opacity,
+                borderWidth: this.borderWidth,
                 transform: [
                   {
                     translateX: this.transX,
@@ -83,5 +84,6 @@ const styles = StyleSheet.create({
     width: CIRCLE_SIZE,
     height: CIRCLE_SIZE,
     borderRadius: CIRCLE_SIZE / 2,
+    borderColor: "#000"
   },
 });
