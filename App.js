@@ -47,7 +47,6 @@ export default class App extends React.Component {
         <PanGestureHandler
           maxPointers={1}
           onGestureEvent={this.onGestureEvent}
-          onHandlerStateChange={this.onHandlerStateChange}
         >
           <Animated.View
             style={[
@@ -57,6 +56,8 @@ export default class App extends React.Component {
                 transform: [
                   {
                     translateX: this.transX,
+                  },
+                  {
                     translateY: this.transY,
                   },
                 ],
@@ -74,13 +75,8 @@ const CIRCLE_SIZE = 70;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
   box: {
-    position: "absolute",
-    left: 0,
-    top: 0,
     backgroundColor: "tomato",
     marginLeft: -(CIRCLE_SIZE / 2),
     marginTop: -(CIRCLE_SIZE / 2),
