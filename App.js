@@ -13,16 +13,6 @@ const Navigation = createStackNavigator({
 
 export default class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Navigation />
-      </View>
-    );
+    return <Navigation />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
