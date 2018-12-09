@@ -41,6 +41,7 @@ export default class App extends Component {
         outputRange: [15, 0],
       }),
     };
+    
     return (
       <View style={styles.container}>
         <TouchableWithoutFeedback onPressIn={this.handleAirhorn} onPressOut={this.handleButtonUp}>
@@ -71,8 +72,7 @@ const styles = StyleSheet.create({
     width: 180,
   },
   outer: {
-    width: "100%",
-    height: "100%",
+    flex: 1,
     padding: 10,
     backgroundColor: "rgba(0,0,0,0.65)",
     borderRadius: 14,
