@@ -57,13 +57,13 @@ export default class App extends React.Component {
         </TouchableOpacity>
 
         <Animated.View style={[StyleSheet.absoluteFill, styles.cover, backdrop]}>
-          <Animated.View style={[styles.sheet]}>
+          <View style={[styles.sheet]}>
             <Animated.View style={[styles.popup, slideUp]}>
               <TouchableOpacity onPress={this.handleClose}>
                 <Text>Close</Text>
               </TouchableOpacity>
             </Animated.View>
-          </Animated.View>
+          </View>
         </Animated.View>
       </View>
     );
@@ -93,8 +93,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
-    minHeight: 75,
     alignItems: "center",
     justifyContent: "center",
+    minHeight: 80,
   },
 });
