@@ -18,12 +18,14 @@ export default class App extends React.Component {
     }).start();
   };
   render() {
+    const screenHeight = Dimensions.get("window").height;
+
     const backdrop = {
       transform: [
         {
           translateY: this.state.animation.interpolate({
             inputRange: [0, 0.01],
-            outputRange: [Dimensions.get("window").height, 0],
+            outputRange: [screenHeight, 0],
             extrapolate: "clamp",
           }),
         },
@@ -35,13 +37,15 @@ export default class App extends React.Component {
       }),
     };
 
-    const fullUp = this.state.animation.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, -1 * Dimensions.get("window").height],
-    });
-
-    const translate = {
-      transform: [{ translateY: fullUp }],
+    const slideUp = {
+      transform: [
+        {
+          translateY: this.state.animation.interpolate({
+            inputRange: [0, 1],
+            outputRange: [0, -1 * screenHeight],
+          }),
+        },
+      ],
     };
 
     return (
@@ -52,7 +56,7 @@ export default class App extends React.Component {
 
         <Animated.View style={[StyleSheet.absoluteFill, styles.cover, backdrop]}>
           <Animated.View style={[styles.sheet]}>
-            <Animated.View style={[styles.popup, translate]}>
+            <Animated.View style={[styles.popup, slideUp]}>
               <TouchableOpacity onPress={this.handleClose}>
                 <Text>Close</Text>
               </TouchableOpacity>
