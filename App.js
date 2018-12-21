@@ -43,8 +43,9 @@ export default class App extends React.Component {
       transform: [
         {
           translateY: this.state.animation.interpolate({
-            inputRange: [0, 1],
+            inputRange: [0.01, 1],
             outputRange: [0, -1 * screenHeight],
+            extrapolate: "clamp",
           }),
         },
       ],
@@ -86,7 +87,6 @@ const styles = StyleSheet.create({
     right: 0,
     height: "100%",
     justifyContent: "flex-end",
-    flex: 1,
   },
   popup: {
     backgroundColor: "#FFF",
