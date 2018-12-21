@@ -6,15 +6,17 @@ export default class App extends React.Component {
     animation: new Animated.Value(0),
   };
   handleOpen = () => {
-    Animated.spring(this.state.animation, {
+    Animated.timing(this.state.animation, {
       toValue: 1,
-      overshootClamping: true,
+      duration: 300,
+      useNativeDriver: true,
     }).start();
   };
   handleClose = () => {
     Animated.timing(this.state.animation, {
       toValue: 0,
       duration: 200,
+      useNativeDriver: true,
     }).start();
   };
   render() {
