@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Animated, Dimensions } from "react-native";
+import Scroller from "./scroller";
 
 export default class App extends React.Component {
   state = {
@@ -63,6 +64,7 @@ export default class App extends React.Component {
               <TouchableOpacity onPress={this.handleClose}>
                 <Text>Close</Text>
               </TouchableOpacity>
+              <Scroller />
             </Animated.View>
           </View>
         </Animated.View>
