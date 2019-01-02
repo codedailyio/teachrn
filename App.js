@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     borderRightColor: "rgba(0, 0, 0, 0.2)",
     width: 32,
     height: 58,
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     overflow: "visible",
