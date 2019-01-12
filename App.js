@@ -16,6 +16,7 @@ class App extends Component {
     Animated.timing(this.state.index, {
       duration: 500,
       toValue: this.state.track,
+      useNativeDriver: true,
     }).start();
   };
 
