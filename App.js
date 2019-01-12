@@ -3,10 +3,6 @@ import { StyleSheet, Text, Animated, View, TouchableOpacity } from "react-native
 
 const items = [0, 1, 2, 3, 4, 5, 6, 7];
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
 class App extends Component {
   state = {
     index: new Animated.Value(0),
